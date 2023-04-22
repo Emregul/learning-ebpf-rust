@@ -1,0 +1,9 @@
+[workspace]
+members = [
+    "xtask", 
+    "chapter-2/hello/userspace", 
+    "chapter-2/hello-map/userspace", 
+    "chapter-2/hello-buffer/userspace",
+    "chapter-2/hello-tail/userspace",
+    "chapter-4/hello-buffer-config/userspace",
+]
