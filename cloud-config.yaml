@@ -1,0 +1,38 @@
+#cloud-config
+users:
+  - default
+  - name: ubuntu
+    gecos: Ubuntu
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: users, admin
+    shell: /bin/bash
+    ssh_import_id: None
+package_update: true
+package_upgrade: true
+packages:
+  - apt-transport-https 
+  - ca-certificates 
+  - curl 
+  - jq
+  - libelf-dev 
+  - libpcap-dev 
+  - libbfd-dev 
+  - binutils-dev 
+  - build-essential 
+  - make 
+  - linux-tools-common 
+  - linux-tools-generic 
+  - bpfcc-tools
+  - python3-pip
+  - libssl-dev
+
+# install bpftools
+# install libbpf
+# install rust
+# switch to nightly
+runcmd:
+ # install llvm16
+ - wget https://apt.llvm.org/llvm.sh && \
+      chmod u+x llvm.sh && \
+      sudo ./llvm.sh 16 all 
+ - sudo sysctl -w kernel.perf_event_paranoid=1
